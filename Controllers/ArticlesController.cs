@@ -21,6 +21,7 @@ namespace Blog.Controllers
         // GET: Articles
         public async Task<IActionResult> Index()
         {
+            ViewBag.EndpointType = Request.Headers["endpoint-type"];
             return View(await _context.Articles.ToListAsync());
         }
 
